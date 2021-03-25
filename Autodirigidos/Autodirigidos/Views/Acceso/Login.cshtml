@@ -1,0 +1,112 @@
+﻿@using System.Timers;
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/LayoutLogin.cshtml";
+    //Layout = null;
+
+}
+
+
+<style>
+
+
+    body {
+        background-color: white;
+        /* background-color:#568966; */
+    }
+
+    .card-redonda {
+        border-radius: 19px;
+    }
+
+    #logo {
+        position: relative;
+        top: 10%;
+        left: 85%
+    }
+
+    .sidenav {
+        width: 70% !important;
+        background-image: url("../../Content/Images/planta.jpg");
+        background-repeat: no-repeat;
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+        .sidenav:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .sidenav h2 {
+            font-size: 60px;
+            color: #fff;
+            position: relative
+        }
+
+        .sidenav p {
+            font-size: 20px;
+            color: #fff;
+            position: relative
+        }
+
+    #section {
+        position: relative;
+        top: -150px;
+        left: 25%;
+    }
+</style>
+
+<link href="~/Content/Login.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/9aa27d183b.js" crossorigin="anonymous"></script>
+<img src="~/Content/Images/leoni.png" class="img-fluid card-img" id="logo" alt="" style="width:35%" />
+
+<div class="sidenav">
+    <div class="login-main-text">
+        <h2>Equipos<br>Autodirigidos</h2>
+        <p>Inicia sesion para acceder.</p>
+    </div>
+</div>
+<section id="section">
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4 col-sm-4">
+            <div class="login-form">
+                @using (Html.BeginForm("Login", "Acceso", FormMethod.Post))
+                {
+
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <input required="true" type="text" id="usuarioIngreso" name="user" placeholder="Usuario" class="form-control input_user" value="">
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input required type="password" id="passwordIngreso" name="password" placeholder="Contraseña" class="form-control input_pass">
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-black" style="width:285px">Entrar</button>
+                    <br />
+                    <br />
+
+
+                    string visible = "visible";
+
+
+                    <div class="alert alert-danger" id="alerta" style="visibility:@visible">
+                        <strong>Error!</strong>@ViewBag.Credenciales
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>

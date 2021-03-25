@@ -1,0 +1,1 @@
+﻿document.getElementById("alerta").style.display="none"
